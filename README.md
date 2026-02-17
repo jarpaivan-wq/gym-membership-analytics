@@ -117,3 +117,55 @@ Created for portfolio demonstration - SQL analytics for fitness industry
 ---
 
 ⭐ If you found this project useful, please consider giving it a star!
+
+Appendix: ## Advanced Analytics Queries
+
+# Advanced Query 12: Membership Revenue Analysis
+
+## 📊 Business Question
+What is the revenue contribution of each membership plan? This comprehensive analysis breaks down revenue by plan, including member count, total income, ranking, and percentage of total revenue.
+
+## 🎯 Technical Complexity
+**Level:** ⭐⭐⭐⭐ Advanced
+
+**Key Concepts Demonstrated:**
+- Multiple CTEs (3 levels)
+- Window function SUM() OVER() for global aggregation
+- Percentage calculations without additional CTEs
+- DENSE_RANK for ranking with ties
+- LEFT JOINs with COALESCE for NULL handling
+- NULLIF for division by zero protection
+
+## 💡 Query Structure
+
+### CTE1: Active Members Count
+Counts active subscriptions per membership plan.
+
+### CTE2: Revenue Calculation
+Calculates total monthly revenue (active members × plan price).
+
+### Final Query
+- Uses SUM() OVER() to get total revenue across all plans
+- Calculates each plan's percentage contribution
+- Ranks plans by revenue using DENSE_RANK
+- Handles plans with zero members using COALESCE
+
+## 📈 Output Columns
+- `nombre_plan`: Membership plan name
+- `miembros_activos`: Number of active members
+- `precio_plan`: Monthly plan price
+- `ingreso_total`: Total monthly revenue
+- `ranking_ingreso_total`: Revenue ranking (1 = highest earner)
+- `porcentaje_del_total`: Percentage of total gym revenue
+
+## 🎓 Business Value
+- **Revenue Optimization:** Identify most profitable membership tiers
+- **Marketing Focus:** Allocate resources to high-revenue plans
+- **Pricing Strategy:** Understand revenue distribution across tiers
+- **Forecasting:** Project revenue based on membership mix
+- **Strategic Planning:** Make data-driven decisions on plan offerings
+
+## 🔗 File
+`gym_04_queries_membership_revenue_analysis.sql`
+--- 
+
